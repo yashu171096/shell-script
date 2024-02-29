@@ -2,6 +2,17 @@
 
 USERID=$(id -u)
 
+VALIDATE(){
+    if [ $1 -ne 0 ]
+then
+    echo "installation of $2 is error"
+    exit 1
+else
+    echo "installation of $2 is success"
+fi        
+
+}
+
 if [ $USERID -ne 0 ]
 then
     echo "error please run this script with root access"
@@ -9,21 +20,7 @@ then
 fi    
 
 yum install mysql -y
-
-if [ $? -ne 0 ]
-then
-    echo "installation of my sql is error"
-    exit 1
-else
-    echo "installation of my sql is success"
-fi        
+VALIDATE $? "mysql"
 
 yum install postfix -y
-
-if [ $? -ne 0 ]
-then
-    echo "installation of postfix is error"
-    exit 1
-else
-    echo "installation of postfix is success"
-fi        
+VALIDATE $? "postfix"
