@@ -8,7 +8,7 @@ then
     exit 1
 fi    
 
-yum install mysql -y
+yum install mysqlii -y
 
 if [$? -ne 0 ]
 then
