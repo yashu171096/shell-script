@@ -16,7 +16,7 @@ then
     echo -e "installing of $Y $2 is $R failed $N"
     exit 1
 else
-    echo "installing of $Y $2 is $G success $N"
+    echo  -e "installing of $Y $2 is $G success $N"
 fi        
 
 }
