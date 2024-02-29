@@ -10,7 +10,7 @@ fi
 
 yum install mysqlii -y
 
-if [$? -ne 0 ]
+if [ $? -ne 0 ]
 then
     echo "installation of my sql is error"
     exit 1
