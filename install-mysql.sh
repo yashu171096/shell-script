@@ -27,8 +27,8 @@ then
     exit 1
 fi    
 
-yum install mysql -y &>>$LOGFILE
+yum install mysqlRY -y &>>$LOGFILE
 VALIDATE $? "mysql"
 
-yum install postfix -y &>>$LOGFILE
+yum install postfixJK -y &>>$LOGFILE
 VALIDATE $? "postfix"
