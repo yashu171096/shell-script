@@ -1,14 +1,16 @@
 #!/bin/bash
 
+
+
 USERID=$(id -u)
 
 VALIDATE(){
     if [ $1 -ne 0 ]
 then
-    echo "installation of $2 is error"
+    echo "installing of $2 is failed"
     exit 1
 else
-    echo "installation of $2 is success"
+    echo "installing of $2 is success"
 fi        
 
 }
