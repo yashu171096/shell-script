@@ -1,16 +1,22 @@
 #!/bin/bash
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/tmp/$SCRIPT_NAME.$DATE.log
 
-
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 USERID=$(id -u)
 
 VALIDATE(){
     if [ $1 -ne 0 ]
 then
-    echo "installing of $2 is failed"
+    echo -e "installing of $Y $2 is $R failed $N"
     exit 1
 else
-    echo "installing of $2 is success"
+    echo "installing of $Y $2 is $G success $N"
 fi        
 
 }
@@ -21,8 +27,8 @@ then
     exit 1
 fi    
 
-yum install mysql -y
+yum install mysql -y &>>$LOGFILE
 VALIDATE $? "mysql"
 
-yum install postfix -y
+yum install postfix -y &>>$LOGFILE
 VALIDATE $? "postfix"
