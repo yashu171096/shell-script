@@ -24,3 +24,4 @@ do
 done <<< $DISK_USAGE
 
 sh mail.sh yashu24710@gmail.com "HIGH DISK USAGE" "$message" "devops team" "MORE DISK USAGE"
+echo "$message"
