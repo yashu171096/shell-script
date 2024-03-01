@@ -21,7 +21,7 @@ VALIDATE(){
     fi    
 }
 
-if [ $USERID ne 0 ];
+if [ $USERID -ne 0 ];
 then
     echo -e "$R ERROR::PLEASE USE THE SUDO ACCESS $N"
     exit 1
@@ -30,7 +30,7 @@ fi
 for i in $@
 do
     yum list installed $i &>>$LOGFILE
-    if [ $? ne 0 ];
+    if [ $? -ne 0 ];
     then
         echo "$i is not installed lets install it"
         yum install $i -y &>>$LOGFILE
