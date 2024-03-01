@@ -3,10 +3,10 @@
 DATE=$(date +%F)
 SCRIPT_NAME=$0
 LOGFILE=/tmp/$SCRIPT_NAME.$DATE.log
-R=".\e[31m"
-G=".\e[32m"
-N=".\e[0m"
-Y=".\e[33m"
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+Y="\e[33m"
 message=""
 
 DISK_USAGE=$(df -hT | grep -vE "tmpfs|Filesystem")
@@ -18,7 +18,7 @@ do
     PARTITION=$(echo $line awk '{print $1}')
     if [ $USAGE -gt $DISK_USAGE_THRESHOLD ];
     then
-        message+="HIGH DISK USAGE" ON $PARTITION: $USAGE
+        message+="HIGH DISK USAGE ON $PARTITION: $USAGE"
     fi
 done <<< $DISK_USAGE
 
