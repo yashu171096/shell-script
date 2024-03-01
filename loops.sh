@@ -12,7 +12,7 @@ N=".\e[0m"
 USERID=$(id -u)
 
 VALIDATE(){
-    if [ $1 ne 0 ];
+    if [ $1 -ne 0 ];
     then
         echo -e "installing $2 is $R failed $N"
         exit 1
